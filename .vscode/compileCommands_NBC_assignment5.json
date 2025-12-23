@@ -1,0 +1,42 @@
+[
+	{
+		"file": "G:\\Unreal\\NBC\\NBC_assignment5\\Source\\NBC_assignment5\\MyActor.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@G:\\Unreal\\NBC\\NBC_assignment5\\.vscode\\compileCommands_NBC_assignment5\\NBC_assignment5.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "G:\\Unreal\\NBC\\NBC_assignment5\\Source\\NBC_assignment5\\MyActor.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@G:\\Unreal\\NBC\\NBC_assignment5\\.vscode\\compileCommands_NBC_assignment5\\NBC_assignment5.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "G:\\Unreal\\NBC\\NBC_assignment5\\Source\\NBC_assignment5\\NBC_assignment5.Build.cs",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@G:\\Unreal\\NBC\\NBC_assignment5\\.vscode\\compileCommands_NBC_assignment5\\NBC_assignment5.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "G:\\Unreal\\NBC\\NBC_assignment5\\Source\\NBC_assignment5\\NBC_assignment5.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@G:\\Unreal\\NBC\\NBC_assignment5\\.vscode\\compileCommands_NBC_assignment5\\NBC_assignment5.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	},
+	{
+		"file": "G:\\Unreal\\NBC\\NBC_assignment5\\Source\\NBC_assignment5\\NBC_assignment5.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+			"@G:\\Unreal\\NBC\\NBC_assignment5\\.vscode\\compileCommands_NBC_assignment5\\NBC_assignment5.1.rsp"
+		],
+		"directory": "D:\\Epic Games\\UE_5.5\\Engine\\Source"
+	}
+]
