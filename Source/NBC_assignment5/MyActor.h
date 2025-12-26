@@ -10,7 +10,7 @@ UCLASS()
 class NBC_ASSIGNMENT5_API AMyActor : public AActor
 {
 	GENERATED_BODY()
-    // Push Test
+    // Push Test Auto Login Test
 private:
     float TotalDistance = 0.0f;
     int EventCount = 0;
