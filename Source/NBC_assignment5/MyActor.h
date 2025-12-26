@@ -10,7 +10,12 @@ UCLASS()
 class NBC_ASSIGNMENT5_API AMyActor : public AActor
 {
 	GENERATED_BODY()
-	
+
+private:
+    float TotalDistance = 0.0f;
+    int EventCount = 0;
+    FTimerHandle TimerHandle;
+
 public:	
 	// Sets default values for this actor's properties
 	AMyActor();
@@ -20,7 +25,8 @@ protected:
 	virtual void BeginPlay() override;
 
 	bool MoveEvent(const FVector& EventLocation);
-	void Turn();
+    void TimerAction();
+    void Turn();
 	void Move();
 
 public:	

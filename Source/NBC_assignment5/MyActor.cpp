@@ -14,40 +14,8 @@ AMyActor::AMyActor()
 void AMyActor::BeginPlay()
 {
 	Super::BeginPlay();
-
-	float TotalDistance = 0.0f;
-	int EventCount = 0;
-	FVector LastLocation = GetActorLocation(); // 현재 위치 저장
-
-	// 10번 반복, 매번 이동시 현재 좌표를 출력한다.
-	// 각 이동 시 마다, 50% 확률로 랜덤하게 이벤트가 발생하며 이벤트는 별도의 함수로 구현되어야 함
-	// 10회 이동후 총 이동 거리와 이벤트 발생 횟수를 출력
-	for (int i = 0; i < 10; i++)
-	{
-		Turn();
-		Move();
-		
-		FVector CurrentLocation = GetActorLocation(); // 이동 후 위치 저장
-		float DistanceMoved = FVector::Dist(LastLocation, CurrentLocation); // 이전 위치와 현재 위치 사이의 거리 계산하는 함수
-		TotalDistance += DistanceMoved; // 누적
-		LastLocation = CurrentLocation; // 현재 위치를 이전 위치로 업데이트
-
-		if (GEngine)
-		{
-			GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Blue, FString::Printf(TEXT("Current Location: %s"), *GetActorLocation().ToString()));
-		}
-
-		if (MoveEvent(CurrentLocation))
-		{
-			EventCount++;
-		}
-	}
-
-	if (GEngine)
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Green, FString::Printf(TEXT("Total Distance Moved: %.2f"), TotalDistance));
-		GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Green, FString::Printf(TEXT("Total Events Occurred: %d"), EventCount));
-	}
+    // 1초마다 반복되는 타이머 설정
+    GetWorld()->GetTimerManager().SetTimer(TimerHandle, this, &AMyActor::TimerAction, 1.0f, true);
 }
 
 // 50퍼 확률로 이벤트 발생
@@ -61,6 +29,46 @@ bool AMyActor::MoveEvent(const FVector &EventLocation)
 		return true;
 	}
 	return false;
+}
+
+// 10번 반복, 매번 이동시 현재 좌표를 출력한다.
+// 각 이동 시 마다, 50% 확률로 랜덤하게 이벤트가 발생하며 이벤트는 별도의 함수로 구현되어야 함
+// 10회 이동후 총 이동 거리와 이벤트 발생 횟수를 출력
+void AMyActor::TimerAction()
+{
+    if (EventCount < 10) 
+    {
+        FVector LastLocation = GetActorLocation(); // 현재 위치 저장
+
+        Turn();
+        Move();
+
+        FVector CurrentLocation = GetActorLocation(); // 이동 후 위치 저장
+        float DistanceMoved = FVector::Dist(LastLocation, CurrentLocation); // 이전 위치와 현재 위치 사이의 거리 계산하는 함수
+        TotalDistance += DistanceMoved; // 누적
+        LastLocation = CurrentLocation; // 현재 위치를 이전 위치로 업데이트
+
+        if (GEngine)
+        {
+            GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Blue, FString::Printf(TEXT("Current Location: %s"), *CurrentLocation.ToString()));
+        }
+
+        if (MoveEvent(CurrentLocation))
+        {
+            EventCount++;
+        }
+    }
+    else
+    {
+        if (GEngine)
+        {
+            GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Green, FString::Printf(TEXT("Total Distance Moved: %.2f"), TotalDistance));
+            GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Green, FString::Printf(TEXT("Total Events Occurred: %d"), EventCount));
+            GetWorld()->GetTimerManager().ClearTimer(TimerHandle);
+            EventCount = 0;
+            TotalDistance = 0.0f;
+        }
+    }  
 }
 
 // 랜덤한 곳으로 회전하는 함수
